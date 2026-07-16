@@ -1,34 +1,44 @@
 <!doctype html>
-<html lang="en">
+<html lang="fi">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="A fixed-scope, local-first bank CSV reconciliation audit for duplicate detection and expected-payment exceptions.">
-  <title>Bank CSV Reconciliation Audit</title>
+  <meta name="description" content="Täsmäytä vuokrien maksut pankin CSV-viennistä: puuttuvat maksut ja mahdolliset kaksoiskirjaukset 2 arkipäivässä.">
+  <title>Vuokrien CSV-täsmäytysauditointi | 249 €</title>
   <style>
-    :root{color-scheme:dark;--bg:#0b1020;--card:#141c31;--ink:#edf2ff;--muted:#afbad2;--accent:#74e2b5}
+    :root{color-scheme:dark;--bg:#0b1020;--card:#141c31;--ink:#edf2ff;--muted:#afbad2;--accent:#74e2b5;--line:#2a385b}
     *{box-sizing:border-box} body{margin:0;background:linear-gradient(135deg,#0b1020,#101a32);color:var(--ink);font:17px/1.6 system-ui,-apple-system,sans-serif}
-    main{max-width:860px;margin:auto;padding:72px 24px} .tag{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem} h1{font-size:clamp(2.5rem,7vw,5rem);line-height:1.03;margin:.3em 0} h2{margin-top:2.4em} .lead{font-size:1.3rem;color:var(--muted);max-width:700px}.card{background:rgba(20,28,49,.88);border:1px solid #2a385b;border-radius:18px;padding:24px;margin:24px 0}.price{font-size:2rem;color:var(--accent);font-weight:750}.button{display:inline-block;background:var(--accent);color:#052019;padding:14px 20px;border-radius:10px;font-weight:800;text-decoration:none;margin-top:12px} li{margin:.4em 0} small{color:var(--muted)}
+    main{max-width:900px;margin:auto;padding:68px 24px}.tag{color:var(--accent);font-weight:750;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem}h1{font-size:clamp(2.35rem,6vw,4.7rem);line-height:1.04;margin:.32em 0}.lead{font-size:1.3rem;color:var(--muted);max-width:760px}h2{margin-top:2.5em}.card{background:rgba(20,28,49,.9);border:1px solid var(--line);border-radius:18px;padding:25px;margin:25px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.price{font-size:2rem;color:var(--accent);font-weight:800}.button{display:inline-block;background:var(--accent);color:#052019;padding:15px 21px;border-radius:10px;font-weight:800;text-decoration:none;margin:12px 0 3px}li{margin:.42em 0}.safe{border-left:4px solid var(--accent)}small,.muted{color:var(--muted)}a{color:var(--accent)}.steps{counter-reset:step}.steps li{list-style:none;position:relative;padding-left:2.2rem}.steps li:before{counter-increment:step;content:counter(step);position:absolute;left:0;color:var(--accent);font-weight:800}
   </style>
 </head>
 <body>
 <main>
-  <p class="tag">Local-first · fixed scope · no bank login</p>
-  <h1>Bank CSV Reconciliation Audit</h1>
-  <p class="lead">Turn one messy exported bank CSV and an expected-payment list into a clear exception report: matched payments, missing payments, and duplicate imports.</p>
+  <p class="tag">Paikallinen tiedosto · kiinteä rajaus · ei pankkitunnuksia</p>
+  <h1>Täsmäytä vuokrien maksut pankin CSV-viennistä 2 arkipäivässä.</h1>
+  <p class="lead">Yksi pankin CSV-muoto ja yksi odotettujen vuokrien lista. Saat selkeän poikkeamaraportin: puuttuvat maksut, kohdistuneet maksut ja mahdolliset kaksoiskirjaukset.</p>
+
   <section class="card">
-    <div class="price">€150–€350</div>
-    <p>One CSV format, one expected-payment ledger, a documented mapping, a sanitized JSON/Markdown report, and a small rerunnable local tool.</p>
-    <a class="button" href="mailto:antero.vipunen.dev@gmail.com?subject=Bank%20CSV%20Reconciliation%20Audit%20scope%20request">Request a scope review by email</a>
-    <p><small>Email only CSV column names, date/decimal conventions, and the target outcome. Do not send bank exports, credentials, account numbers, customer data, or transaction descriptions in first contact.</small></p>
+    <div class="price">249 € kiinteä projektihinta</div>
+    <p>Yksi CSV-muoto, yksi odotettujen maksujen lista, dokumentoitu sarakekartoitus ja paikallisesti ajettava työkalu. Mahdollinen ALV ja maksutapa vahvistetaan kirjallisesti ennen maksua.</p>
+    <a class="button" href="mailto:antero.vipunen.dev@gmail.com?subject=CSV-t%C3%A4sm%C3%A4ytysauditointi%20%E2%80%94%20sopiiko%20vienti%20t%C3%A4h%C3%A4n%3F&body=1.%20Tarvittava%20lopputulos%20(esim.%20puuttuvat%20vuokrat%20/%20mahdolliset%20kaksoiskirjaukset)%3A%0A%0A2.%20CSV-sarakkeiden%20nimet%20vain%20(ei%20rivej%C3%A4)%3A%0A%0A3.%20P%C3%A4iv%C3%A4m%C3%A4%C3%A4r%C3%A4-%20ja%20desimaalimuoto%3A%0A%0A4.%20Arvio%20riveist%C3%A4%20kuukaudessa%20ja%20odotetuista%20maksuista%3A%0A%0A5.%20Vahvistan%2C%20ettei%20t%C3%A4ss%C3%A4%20viestiss%C3%A4%20ole%20pankkivienti%C3%A4%2C%20tilinumeroa%2C%20tunnuksia%2C%20asiakasnime%C3%A4%20tai%20tapahtumakuvausta%3A%20kyll%C3%A4%2Fei%0A%0AYmm%C3%A4rr%C3%A4n%2C%20ett%C3%A4%20249%20%E2%82%AC%20auditointi%20kattaa%20yhden%20CSV-muodon%20ja%20yhden%20odotettujen%20maksujen%20listan.%20Pyyd%C3%A4n%20vahvistusta%20sopivuudesta%2C%20tarkasta%20rajauksesta%2C%20mahdollisesta%20ALV%3Asta%20sek%C3%A4%20maksu-%20ja%20aloitusvaiheista.">Tarkista sopiiko CSV-vientisi auditointiin</a>
+    <p><small>Vastaan 1 arkipäivässä. Älä liitä ensimmäiseen viestiin pankkitietoja, tapahtumarivejä tai henkilötietoja.</small></p>
   </section>
-  <h2>For</h2>
-  <ul><li>Small landlords reconciling rent receipts</li><li>Small businesses checking expected payments</li><li>Finance/ERP teams adding a safer CSV import</li></ul>
-  <h2>What you receive</h2>
-  <ul><li>CSV column mapping and date/decimal notes</li><li>Matched and missing expected payments</li><li>Stable duplicate detection</li><li>JSON + Markdown exception report</li><li>Reusable local runner/config and integration notes</li></ul>
-  <h2>Privacy boundary</h2>
-  <p>The workflow is read-only and local-file based. It never connects to a bank, requests credentials, initiates payments, or offers accounting/financial advice. Start with synthetic or anonymized headers and sample rows only.</p>
-  <p><small>Public demand evidence is documented in the repository. It is market research, not an affiliation or guarantee.</small></p>
+
+  <section class="grid">
+    <div class="card"><h2>Sinulle, jos</h2><ul><li>seuraat vuokrien suorituksia pankin CSV-viennistä</li><li>tarkistat odotettuja maksuja käsin taulukosta</li><li>haluat nähdä poikkeamat ilman pankkiyhteyttä</li></ul></div>
+    <div class="card"><h2>Saat</h2><ul><li>sarakekartoituksen</li><li>kohdistuneet ja puuttuvat maksut</li><li>mahdolliset duplikaatit</li><li>JSON- ja Markdown-raportin</li><li>uudelleenajettavan paikallisen työkalun</li></ul></div>
+  </section>
+
+  <h2>Näe tarkka lopputulos</h2>
+  <p><a href="sample-report-fi.html">Katso synteettinen esimerkkiraportti</a>: 3 tapahtumaa · 1 puuttuva odotettu maksu · 2 mahdollista kaksoiskirjausta.</p>
+
+  <h2>Näin etenemme</h2>
+  <ol class="steps"><li>Vastaan sopivuuskyselyyn 1 arkipäivässä.</li><li>Vahvistamme kirjallisesti turvallisen rajauksen, 249 € hinnan, mahdollisen ALV:n ja maksutavan.</li><li>Työ alkaa maksun ja sovitun turvallisen aineistotavan jälkeen.</li><li>Toimitus 2 arkipäivässä: raportti, asetukset ja paikallisesti ajettava työkalu.</li></ol>
+
+  <section class="card safe"><h2>Turvallinen aloitus</h2><ul><li>Ei pankkitunnuksia, pankkiyhteyttä tai julkista tiedostolähetystä.</li><li>Ensimmäinen yhteydenotto sisältää vain otsikot tai synteettisen esimerkin.</li><li>Raaka-aineiston jakotapa sovitaan vasta rajauksen jälkeen.</li><li>Auditointi on read-only; se ei tee kirjanpitoa, maksualoituksia tai talousneuvontaa.</li></ul></section>
+
+  <h2>Rajaus</h2><p><strong>Mukana:</strong> yksi CSV-skeema, yksi odotettujen maksujen lista ja poikkeamaraportti. <strong>Ei mukana:</strong> pankkikirjautuminen, live-rajapinnat, kirjanpitoneuvonta, sovellusintegraatio tai laaja datan siivous. Integraatiosta voidaan sopia erikseen auditoinnin jälkeen.</p>
+  <p class="muted"><a href="README.md">English / technical details</a></p>
 </main>
 </body>
 </html>
