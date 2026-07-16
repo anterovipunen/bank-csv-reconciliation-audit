@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A fixed-scope, local-first bank CSV reconciliation audit for duplicate detection and expected-payment exceptions.">
+  <title>Bank CSV Reconciliation Audit</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--card:#141c31;--ink:#edf2ff;--muted:#afbad2;--accent:#74e2b5}
+    *{box-sizing:border-box} body{margin:0;background:linear-gradient(135deg,#0b1020,#101a32);color:var(--ink);font:17px/1.6 system-ui,-apple-system,sans-serif}
+    main{max-width:860px;margin:auto;padding:72px 24px} .tag{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem} h1{font-size:clamp(2.5rem,7vw,5rem);line-height:1.03;margin:.3em 0} h2{margin-top:2.4em} .lead{font-size:1.3rem;color:var(--muted);max-width:700px}.card{background:rgba(20,28,49,.88);border:1px solid #2a385b;border-radius:18px;padding:24px;margin:24px 0}.price{font-size:2rem;color:var(--accent);font-weight:750}.button{display:inline-block;background:var(--accent);color:#052019;padding:14px 20px;border-radius:10px;font-weight:800;text-decoration:none;margin-top:12px} li{margin:.4em 0} small{color:var(--muted)}
+  </style>
+</head>
+<body>
+<main>
+  <p class="tag">Local-first · fixed scope · no bank login</p>
+  <h1>Bank CSV Reconciliation Audit</h1>
+  <p class="lead">Turn one messy exported bank CSV and an expected-payment list into a clear exception report: matched payments, missing payments, and duplicate imports.</p>
+  <section class="card">
+    <div class="price">€150–€350</div>
+    <p>One CSV format, one expected-payment ledger, a documented mapping, a sanitized JSON/Markdown report, and a small rerunnable local tool.</p>
+    <a class="button" href="https://github.com/anterovipunen/bank-csv-reconciliation-audit/issues/new?template=scope_request.md">Request a safe scope review</a>
+    <p><small>Do not include bank data, credentials, customer data, account numbers, or transaction descriptions in a public issue.</small></p>
+  </section>
+  <h2>For</h2>
+  <ul><li>Small landlords reconciling rent receipts</li><li>Small businesses checking expected payments</li><li>Finance/ERP teams adding a safer CSV import</li></ul>
+  <h2>What you receive</h2>
+  <ul><li>CSV column mapping and date/decimal notes</li><li>Matched and missing expected payments</li><li>Stable duplicate detection</li><li>JSON + Markdown exception report</li><li>Reusable local runner/config and integration notes</li></ul>
+  <h2>Privacy boundary</h2>
+  <p>The workflow is read-only and local-file based. It never connects to a bank, requests credentials, initiates payments, or offers accounting/financial advice. Start with synthetic or anonymized headers and sample rows only.</p>
+  <p><small>Public demand evidence is documented in the repository. It is market research, not an affiliation or guarantee.</small></p>
+</main>
+</body>
+</html>
