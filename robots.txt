@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://anterovipunen.github.io/bank-csv-reconciliation-audit/sitemap.xml

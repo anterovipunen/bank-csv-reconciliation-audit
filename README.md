@@ -9,10 +9,10 @@ For a single bank-export shape, the audit delivers:
 - a documented column mapping;
 - matched and missing expected payments;
 - stable duplicate transaction detection;
-- JSON and Markdown reports; and
+- JSON and Markdown reports with validation warnings; and
 - a small local Python runner/config you can keep.
 
-**Typical fixed scope:** €150–€350 for one CSV format and one expected-payment ledger.  
+**Current fixed scope:** €249 for one CSV format and one expected-payment ledger.  
 **Starter integration:** discussed only after the audit has proven the mapping.
 
 ## Designed for
@@ -32,7 +32,9 @@ This is a local-file, read-only workflow. Never post bank statements, transactio
 3. Review duplicates and exceptions.
 4. Deliver a sanitized report, configuration, and rerunnable tool.
 
-## Inquiry
+## Landing page and inquiry
+
+Public landing page: https://anterovipunen.github.io/bank-csv-reconciliation-audit/
 
 Email `antero.vipunen.dev@gmail.com` for a safe scope review. In the first message include only CSV column names, date/decimal conventions, and the desired outcome — never bank data, credentials, customer data, account numbers, or transaction descriptions. A secure data-sharing route is agreed only after the scope is accepted.
 
