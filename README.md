@@ -34,7 +34,7 @@ This is a local-file, read-only workflow. Never post bank statements, transactio
 
 ## Inquiry
 
-Open a **private-safe scope request** using the issue template in this repository. Include no bank data. State only the CSV column names, your target outcome, and whether you need an audit or an application integration.
+Email `antero.vipunen.dev@gmail.com` for a safe scope review. In the first message include only CSV column names, date/decimal conventions, and the desired outcome — never bank data, credentials, customer data, account numbers, or transaction descriptions. A secure data-sharing route is agreed only after the scope is accepted.
 
 ## What this is not
 
