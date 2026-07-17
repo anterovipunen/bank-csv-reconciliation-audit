@@ -3,12 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Täsmäytä vuokrien maksut pankin CSV-viennistä: puuttuvat maksut ja mahdolliset kaksoiskirjaukset 2 arkipäivässä.">
-  <meta name="keywords" content="vuokrien täsmäytys, vuokranmaksujen seuranta, pankki CSV, CSV täsmäytys, kaksoiskirjaukset, vuokranantaja">
+  <meta name="description" content="Vuokranmaksujen seuranta pankin CSV-viennistä: puuttuvat maksut, viivästyneet vuokrat ja mahdolliset kaksoiskirjaukset 2 arkipäivässä.">
+  <meta name="keywords" content="vuokrien täsmäytys, vuokranmaksujen seuranta, vuokraseuranta, pankki CSV, CSV täsmäytys, kaksoiskirjaukset, puuttuvat vuokrat, vuokranantaja">
+  <meta property="og:title" content="Vuokranmaksujen CSV-täsmäytysauditointi | 249 €">
+  <meta property="og:description" content="Kiinteähintainen read-only auditointi vuokranantajalle: pankki-CSV, odotetut maksut, poikkeamaraportti ja paikallinen työkalu.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anterovipunen.github.io/bank-csv-reconciliation-audit/">
+  <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://anterovipunen.github.io/bank-csv-reconciliation-audit/">
-  <title>Vuokrien CSV-täsmäytysauditointi | 249 €</title>
+  <title>Vuokranmaksujen CSV-täsmäytysauditointi | 249 €</title>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Service","name":"Vuokrien CSV-täsmäytysauditointi","description":"Read-only audit for bank CSV exports: expected rent payments, missing payments, duplicate candidates and a Markdown/JSON exception report.","areaServed":"FI","provider":{"@type":"Person","name":"Antero Vipunen"},"offers":{"@type":"Offer","price":"249","priceCurrency":"EUR","availability":"https://schema.org/InStock"},"url":"https://anterovipunen.github.io/bank-csv-reconciliation-audit/"}
+  {"@context":"https://schema.org","@type":"Service","name":"Vuokranmaksujen CSV-täsmäytysauditointi","description":"Read-only audit for bank CSV exports: expected rent payments, missing or late rent payments, duplicate candidates and a Markdown/JSON exception report.","areaServed":"FI","provider":{"@type":"Person","name":"Antero Vipunen"},"offers":{"@type":"Offer","price":"249","priceCurrency":"EUR","availability":"https://schema.org/InStock"},"url":"https://anterovipunen.github.io/bank-csv-reconciliation-audit/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Voinko lähettää pankin CSV-tiedoston heti?","acceptedAnswer":{"@type":"Answer","text":"Ei. Ensimmäisessä yhteydenotossa pyydetään vain sarakeotsikot, päivämäärä- ja desimaalimuoto, rivimääräarvio ja haluttu lopputulos. Raaka-aineiston turvallinen jakotapa sovitaan vasta rajauksen jälkeen."}},{"@type":"Question","name":"Mitä 249 euron auditointi sisältää?","acceptedAnswer":{"@type":"Answer","text":"Yhden CSV-muodon kartoituksen, yhden odotettujen maksujen listan täsmäytyksen, puuttuvien maksujen ja mahdollisten duplikaattien raportin sekä paikallisesti ajettavan Python-työkalun."}}]}
   </script>
   <style>
     :root{color-scheme:dark;--bg:#0b1020;--card:#141c31;--ink:#edf2ff;--muted:#afbad2;--accent:#74e2b5;--line:#2a385b}
@@ -43,6 +51,8 @@
   <ol class="steps"><li>Vastaan sopivuuskyselyyn 1 arkipäivässä.</li><li>Vahvistamme kirjallisesti turvallisen rajauksen, 249 € hinnan, mahdollisen ALV:n ja maksutavan.</li><li>Työ alkaa maksun ja sovitun turvallisen aineistotavan jälkeen.</li><li>Toimitus 2 arkipäivässä: raportti, asetukset ja paikallisesti ajettava työkalu.</li></ol>
 
   <section class="card safe"><h2>Turvallinen aloitus</h2><ul><li>Ei pankkitunnuksia, pankkiyhteyttä tai julkista tiedostolähetystä.</li><li>Ensimmäinen yhteydenotto sisältää vain otsikot tai synteettisen esimerkin.</li><li>Raaka-aineiston jakotapa sovitaan vasta rajauksen jälkeen.</li><li>Auditointi on read-only; se ei tee kirjanpitoa, maksualoituksia tai talousneuvontaa.</li></ul></section>
+
+  <section class="card"><h2>Usein kysyttyä</h2><h3>Voinko lähettää pankin CSV-tiedoston heti?</h3><p>Älä lähetä. Ensimmäisessä viestissä riittävät sarakeotsikot, päivämäärä- ja desimaalimuoto, rivimääräarvio ja haluttu lopputulos.</p><h3>Mitä 249 € sisältää?</h3><p>Yhden CSV-muodon kartoituksen, yhden odotettujen maksujen listan täsmäytyksen, puuttuvien maksujen ja mahdollisten duplikaattien raportin sekä paikallisesti ajettavan työkalun.</p></section>
 
   <h2>Rajaus</h2><p><strong>Mukana:</strong> yksi CSV-skeema, yksi odotettujen maksujen lista ja poikkeamaraportti. <strong>Ei mukana:</strong> pankkikirjautuminen, live-rajapinnat, kirjanpitoneuvonta, sovellusintegraatio tai laaja datan siivous. Integraatiosta voidaan sopia erikseen auditoinnin jälkeen.</p>
   <p class="muted"><a href="README.md">English / technical details</a></p>
