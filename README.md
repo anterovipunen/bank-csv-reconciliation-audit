@@ -36,6 +36,8 @@ This is a local-file, read-only workflow. Never post bank statements, transactio
 
 Public landing page: https://anterovipunen.github.io/bank-csv-reconciliation-audit/
 
+Privacy-safe sample package release: https://github.com/anterovipunen/bank-csv-reconciliation-audit/releases/tag/v0.1.0
+
 Finnish buyer guide: https://anterovipunen.github.io/bank-csv-reconciliation-audit/vuokranmaksujen-seuranta-csv.html
 
 Safe 5-minute fit check: https://anterovipunen.github.io/bank-csv-reconciliation-audit/sopivuuskysely.html
