@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="5 minuutin sopivuuskysely pankki-CSV:n vuokramaksujen täsmäytysauditointiin. Kysy turvallisesti pelkillä otsikoilla ja muototiedoilla — ei pankkivientiä ensimmäiseen viestiin.">
+  <meta property="og:title" content="Sopiiko pankki-CSV 249 € täsmäytysauditointiin?">
+  <meta property="og:description" content="Turvallinen 5 minuutin kysely vuokranantajalle: lähetä vain sarakeotsikot, päivämäärä-/desimaalimuoto, rivimääräarvio ja tavoite.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anterovipunen.github.io/bank-csv-reconciliation-audit/sopivuuskysely.html">
+  <link rel="canonical" href="https://anterovipunen.github.io/bank-csv-reconciliation-audit/sopivuuskysely.html">
+  <title>Sopiiko pankki-CSV 249 € auditointiin?</title>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Sopiiko pankki-CSV 249 € täsmäytysauditointiin?","description":"Safe qualification page for a fixed-scope bank CSV reconciliation audit. First contact asks only for non-sensitive scope facts.","url":"https://anterovipunen.github.io/bank-csv-reconciliation-audit/sopivuuskysely.html","isPartOf":{"@type":"WebSite","name":"Bank CSV Reconciliation Audit","url":"https://anterovipunen.github.io/bank-csv-reconciliation-audit/"}}
+  </script>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--card:#141c31;--ink:#edf2ff;--muted:#afbad2;--accent:#74e2b5;--warn:#ffd166;--line:#2a385b}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#0b1020,#101a32);color:var(--ink);font:17px/1.6 system-ui,-apple-system,sans-serif}main{max-width:880px;margin:auto;padding:56px 24px}.tag{color:var(--accent);font-weight:750;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem}h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.08}.lead{font-size:1.25rem;color:var(--muted)}.card{background:rgba(20,28,49,.9);border:1px solid var(--line);border-radius:18px;padding:24px;margin:22px 0}.button{display:inline-block;background:var(--accent);color:#052019;padding:14px 20px;border-radius:10px;font-weight:800;text-decoration:none}.outline{border:1px solid var(--accent);background:transparent;color:var(--accent)}a{color:var(--accent)}li{margin:.45em 0}.muted{color:var(--muted)}.no{border-left:4px solid var(--warn)}code{background:#080d1a;padding:.15rem .35rem;border-radius:.35rem}textarea{width:100%;min-height:220px;border:1px solid var(--line);border-radius:12px;background:#080d1a;color:var(--ink);padding:14px;font:15px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace}
+  </style>
+</head>
+<body>
+<main>
+  <p class="tag">5 minuutin sopivuuskysely · ei liitteitä · ei pankkitietoja</p>
+  <h1>Selvitä ensin, sopiiko CSV-vientisi auditointiin.</h1>
+  <p class="lead">Tämä sivu madaltaa ensimmäistä yhteydenottoa: sinun ei tarvitse jakaa pankkivientiä, tilinumeroita, vuokralaisten nimiä tai tapahtumarivejä. Otsikot ja muotosäännöt riittävät sopivuuden arviointiin.</p>
+
+  <section class="card">
+    <h2>Sopii yleensä, jos</h2>
+    <ul>
+      <li>sinulla on yksi pankin CSV- tai Excelistä CSV:ksi tallennettu vientimuoto;</li>
+      <li>haluat löytää puuttuvat vuokrat, myöhässä olevat maksut tai mahdolliset duplikaatit;</li>
+      <li>odotettu maksu voidaan kuvata summalla, eräpäivällä ja viitteellä, viestillä tai maksajan tunnisteella;</li>
+      <li>tarvitset poikkeamaraportin, et pankki-integraatiota tai kirjanpitopalvelua.</li>
+    </ul>
+  </section>
+
+  <section class="card no">
+    <h2>Älä lähetä ensimmäisessä viestissä</h2>
+    <ul>
+      <li>pankki-CSV:tä tai tapahtumarivejä;</li>
+      <li>tilinumeroita, henkilötunnuksia, asiakas- tai vuokralaisnimiä;</li>
+      <li>verkkopankkitunnuksia, API-avaimia tai kirjautumistietoja;</li>
+      <li>perintään, riitaan tai luottopäätökseen liittyvää arkaluonteista aineistoa.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Kopioi tämä turvallinen kyselypohja</h2>
+    <textarea readonly>1. Tavoite:
+   - [ ] puuttuvat vuokrat
+   - [ ] myöhässä olevat maksut
+   - [ ] mahdolliset kaksoiskirjaukset
+   - [ ] muu read-only poikkeamaraportti: ____
+
+2. CSV-sarakkeiden nimet vain (ei rivejä):
+   Esim. Päivä, Summa, Viite, Maksaja, Viesti, Saldo
+
+3. Päivämäärä- ja desimaalimuoto:
+   Esim. 31.7.2026 ja 800,00 tai 2026-07-31 ja 800.00
+
+4. Odotettujen maksujen määrä kuukaudessa ja tyypillinen summahaarukka:
+   Esim. 3-12 vuokraa / kk, 500-1200 EUR
+
+5. Miten maksu yleensä tunnistetaan?
+   - [ ] viitenumero
+   - [ ] maksajan nimi/tunniste
+   - [ ] viestikenttä
+   - [ ] vain summa ja päivämääräikkuna
+
+6. Vahvistan, ettei tässä viestissä ole pankkivientiä, tilinumeroa, henkilötietoja, tapahtumakuvauksia, tunnuksia tai asiakasdataa: kyllä/ei</textarea>
+    <p><a class="button" href="mailto:antero.vipunen.dev@gmail.com?subject=Sopivuuskysely%3A%20pankki-CSV%20vuokramaksujen%20t%C3%A4sm%C3%A4ytys&body=1.%20Tavoite%3A%0A-%20%5B%20%5D%20puuttuvat%20vuokrat%0A-%20%5B%20%5D%20my%C3%B6h%C3%A4ss%C3%A4%20olevat%20maksut%0A-%20%5B%20%5D%20mahdolliset%20kaksoiskirjaukset%0A-%20%5B%20%5D%20muu%20read-only%20poikkeamaraportti%3A%0A%0A2.%20CSV-sarakkeiden%20nimet%20vain%20(ei%20rivej%C3%A4)%3A%0A%0A3.%20P%C3%A4iv%C3%A4m%C3%A4%C3%A4r%C3%A4-%20ja%20desimaalimuoto%3A%0A%0A4.%20Odotettujen%20maksujen%20m%C3%A4%C3%A4r%C3%A4%20kuukaudessa%20ja%20tyypillinen%20summahaarukka%3A%0A%0A5.%20Miten%20maksu%20yleens%C3%A4%20tunnistetaan%3F%20viite%20%2F%20nimi%20%2F%20viesti%20%2F%20summa%2Bpäivä%3A%0A%0A6.%20Vahvistan%2C%20ettei%20t%C3%A4ss%C3%A4%20viestiss%C3%A4%20ole%20pankkivienti%C3%A4%2C%20tilinumeroa%2C%20henkil%C3%B6tietoja%2C%20tapahtumakuvauksia%2C%20tunnuksia%20tai%20asiakasdataa%3A%20kyll%C3%A4%2Fei">Avaa turvallinen sähköpostipohja</a></p>
+    <p class="muted">Vastaus 1 arkipäivässä. 249 € auditoinnin rajaus, mahdollinen ALV, maksutapa ja turvallinen aineistotapa vahvistetaan kirjallisesti ennen työtä.</p>
+  </section>
+
+  <section class="card">
+    <h2>Mitä saat, jos rajaus hyväksytään?</h2>
+    <ul>
+      <li>sarakekartoitus yhdelle CSV-muodolle;</li>
+      <li>raportti kohdistetuista, puuttuvista ja mahdollisesti tuplista maksuista;</li>
+      <li>validointivaroitukset kuten tyhjät viitteet, tyhjät kuvaukset ja ohitetut sarakkeet;</li>
+      <li>JSON- ja Markdown-esimerkkituloste sekä paikallisesti ajettava työkalu.</li>
+    </ul>
+    <p><a class="button outline" href="sample-report-fi.html">Katso synteettinen esimerkkiraportti</a></p>
+  </section>
+
+  <p class="muted"><a href="./">Takaisin palvelusivulle</a> · <a href="vuokranmaksujen-seuranta-csv.html">Lue CSV-seurannan ohje</a></p>
+</main>
+</body>
+</html>
