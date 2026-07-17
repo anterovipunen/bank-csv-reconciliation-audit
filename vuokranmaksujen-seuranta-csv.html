@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Käytännön ohje vuokranmaksujen seurantaan pankin CSV-viennistä: mitä sarakkeita tarvitaan, miten poikkeamat löytyvät ja miten aloitetaan turvallisesti ilman pankkitunnuksia.">
+  <meta property="og:title" content="Vuokranmaksujen seuranta pankki-CSV:stä">
+  <meta property="og:description" content="Read-only CSV-täsmäytys vuokranantajalle: puuttuvat vuokrat, viitteettömät maksut ja mahdolliset duplikaatit ilman pankkiyhteyttä.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anterovipunen.github.io/bank-csv-reconciliation-audit/vuokranmaksujen-seuranta-csv.html">
+  <link rel="canonical" href="https://anterovipunen.github.io/bank-csv-reconciliation-audit/vuokranmaksujen-seuranta-csv.html">
+  <title>Vuokranmaksujen seuranta pankki-CSV:stä</title>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Vuokranmaksujen seuranta pankki-CSV:stä","about":["vuokranmaksujen seuranta","pankki CSV","vuokrien täsmäytys"],"author":{"@type":"Person","name":"Antero Vipunen"},"mainEntityOfPage":"https://anterovipunen.github.io/bank-csv-reconciliation-audit/vuokranmaksujen-seuranta-csv.html"}
+  </script>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--card:#141c31;--ink:#edf2ff;--muted:#afbad2;--accent:#74e2b5;--line:#2a385b}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#0b1020,#101a32);color:var(--ink);font:17px/1.6 system-ui,-apple-system,sans-serif}main{max-width:880px;margin:auto;padding:56px 24px}.tag{color:var(--accent);font-weight:750;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem}h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.08}h2{margin-top:2em}.lead{font-size:1.25rem;color:var(--muted)}.card{background:rgba(20,28,49,.9);border:1px solid var(--line);border-radius:18px;padding:24px;margin:22px 0}.button{display:inline-block;background:var(--accent);color:#052019;padding:14px 20px;border-radius:10px;font-weight:800;text-decoration:none}a{color:var(--accent)}li{margin:.4em 0}.muted{color:var(--muted)}code{background:#080d1a;padding:.15rem .35rem;border-radius:.35rem}
+  </style>
+</head>
+<body>
+<main>
+  <p class="tag">Ohje vuokranantajalle · CSV · read-only</p>
+  <h1>Vuokranmaksujen seuranta pankki-CSV:stä ilman pankkitunnuksia</h1>
+  <p class="lead">Jos vuokrat tarkistetaan kuukausittain verkkopankin viennistä tai taulukosta, pienikin muotovaihtelu tekee käsityöstä hidasta: viitteet puuttuvat, nimet vaihtelevat, rivit voivat tuplaantua ja yksi myöhästynyt maksu hukkuu helposti muiden tapahtumien sekaan.</p>
+
+  <section class="card">
+    <h2>Mitä minimissään tarvitaan?</h2>
+    <ul>
+      <li>Pankista viety CSV tai Excelistä CSV:ksi tallennettu tiedosto.</li>
+      <li>Sarakeotsikot kuten päivämäärä, summa, viite, maksaja tai viesti. Ensimmäiseen yhteydenottoon riittävät pelkät otsikot.</li>
+      <li>Odotettujen maksujen lista: huoneisto/tunniste, summa, eräpäivä ja mahdollinen viite tai maksajan tunniste.</li>
+      <li>Sääntö siitä, kuinka monta päivää eräpäivän jälkeen maksu saa näkyä ennen kuin se merkitään poikkeamaksi.</li>
+    </ul>
+  </section>
+
+  <h2>Mitä poikkeamaraportti näyttää?</h2>
+  <ul>
+    <li><strong>Kohdistetut maksut:</strong> mikä odotettu vuokra löytyi pankkiviennistä.</li>
+    <li><strong>Puuttuvat tai myöhässä olevat maksut:</strong> odotettu rivi, jolle ei löytynyt maksua sovitussa ikkunassa.</li>
+    <li><strong>Mahdolliset kaksoiskirjaukset:</strong> samankaltaiset summa/päivä/kuvaus-yhdistelmät, joita ei kannata kirjata kahdesti.</li>
+    <li><strong>Validointivaroitukset:</strong> tyhjät viitteet, tyhjät kuvaukset, ohitetut tyhjät rivit ja sarakkeet, joita kartoitus ei käyttänyt.</li>
+  </ul>
+
+  <section class="card">
+    <h2>Turvallinen aloitus</h2>
+    <p>Ensimmäiseen viestiin ei tarvita pankkitiliä, tapahtumarivejä, henkilötietoja, vuokralaisten nimiä tai kirjautumistietoja. Lähetä vain sarakeotsikot, päivämäärä-/desimaalimuoto, rivimääräarvio ja haluttu lopputulos. Varsinainen aineistotapa sovitaan vasta, jos rajaus hyväksytään.</p>
+    <p><a class="button" href="mailto:antero.vipunen.dev@gmail.com?subject=Vuokranmaksujen%20CSV-seuranta%20%E2%80%94%20sopiiko%20auditointiin%3F&body=1.%20Tavoite%20(esim.%20puuttuvat%20vuokrat%2C%20my%C3%B6h%C3%A4ss%C3%A4%20olevat%20maksut%2C%20duplikaatit)%3A%0A%0A2.%20CSV-sarakkeiden%20nimet%20vain%20(ei%20rivej%C3%A4)%3A%0A%0A3.%20P%C3%A4iv%C3%A4m%C3%A4%C3%A4r%C3%A4-%20ja%20desimaalimuoto%3A%0A%0A4.%20Kuinka%20monta%20vuokraa%20tai%20odotettua%20maksua%20kuukaudessa%3A%0A%0A5.%20Vahvistan%2C%20ettei%20viestiss%C3%A4%20ole%20pankkivienti%C3%A4%2C%20tilinumeroa%2C%20henkil%C3%B6tietoja%20tai%20tapahtumakuvauksia%3A%20kyll%C3%A4%2Fei%0A">Kysy sopiiko vientisi 249 € auditointiin</a></p>
+  </section>
+
+  <h2>Milloin tämä ei sovi?</h2>
+  <p>Auditointi ei ole kirjanpitopalvelu, pankki-integraatio, maksuvalvonnan ulkoistus tai juridinen perintäneuvonta. Se sopii parhaiten tilanteeseen, jossa sinulla on jo oikeus tarkastella omia pankkivientejäsi ja haluat selkeän read-only poikkeamaraportin yhdestä CSV-muodosta.</p>
+
+  <p class="muted">Katso myös: <a href="./">kiinteähintainen CSV-täsmäytysauditointi</a> ja <a href="sample-report-fi.html">synteettinen esimerkkiraportti</a>.</p>
+</main>
+</body>
+</html>
