@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Näin kysyt pankki-CSV:n vuokramaksujen täsmäytysauditointia turvallisesti: sarakeotsikot, synteettiset esimerkkirivit ja ei arkaluonteista dataa ensimmäiseen viestiin.">
+  <meta property="og:title" content="Turvallinen esimerkkiaineisto pankki-CSV auditointiin">
+  <meta property="og:description" content="Kopioitava synteettinen CSV-esimerkki ja odotettujen maksujen malli ilman tilinumeroita, tapahtumarivejä tai henkilötietoja.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anterovipunen.github.io/bank-csv-reconciliation-audit/turvallinen-esimerkkiaineisto.html">
+  <link rel="canonical" href="https://anterovipunen.github.io/bank-csv-reconciliation-audit/turvallinen-esimerkkiaineisto.html">
+  <title>Turvallinen esimerkkiaineisto pankki-CSV auditointiin</title>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"HowTo","name":"Näin lähetät pankki-CSV auditoinnin sopivuustiedot turvallisesti","description":"Ohje turvalliseen ensikyselyyn: lähetä vain sarakeotsikot, muotosäännöt ja synteettiset rivit, ei oikeaa pankkidataa.","totalTime":"PT5M","step":[{"@type":"HowToStep","name":"Kopioi sarakeotsikot","text":"Lähetä vain CSV:n otsikkorivi tai lista sarakkeista, ei tapahtumarivejä."},{"@type":"HowToStep","name":"Kuvaa muodot","text":"Kerro päivämäärämuoto, desimaalierotin ja arvio rivimäärästä."},{"@type":"HowToStep","name":"Käytä synteettisiä rivejä","text":"Jos esimerkki tarvitaan, vaihda nimet, viitteet, summat ja päivät kuvitteellisiksi."},{"@type":"HowToStep","name":"Vahvista rajaus","text":"Vahvista, ettei ensiviestissä ole pankkivientiä, tilinumeroita, henkilötietoja, tunnuksia tai tapahtumakuvauksia."}]}
+  </script>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--card:#141c31;--ink:#edf2ff;--muted:#afbad2;--accent:#74e2b5;--warn:#ffd166;--line:#2a385b}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#0b1020,#101a32);color:var(--ink);font:17px/1.6 system-ui,-apple-system,sans-serif}main{max-width:900px;margin:auto;padding:56px 24px}.tag{color:var(--accent);font-weight:750;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem}h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.08}.lead{font-size:1.22rem;color:var(--muted)}.card{background:rgba(20,28,49,.9);border:1px solid var(--line);border-radius:18px;padding:24px;margin:22px 0}.button{display:inline-block;background:var(--accent);color:#052019;padding:14px 20px;border-radius:10px;font-weight:800;text-decoration:none}a{color:var(--accent)}li{margin:.45em 0}.muted{color:var(--muted)}.warn{border-left:4px solid var(--warn)}pre{white-space:pre-wrap;background:#080d1a;border:1px solid var(--line);border-radius:12px;padding:16px;overflow:auto}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  </style>
+</head>
+<body>
+<main>
+  <p class="tag">Turvallinen ensikysely · synteettinen malli · ei pankkirivejä</p>
+  <h1>Jos et uskalla kysyä, mitä voi lähettää: käytä tätä turvallista esimerkkimallia.</h1>
+  <p class="lead">Tämän sivun tarkoitus on poistaa ensimmäisen yhteydenoton epävarmuus. Sopivuuden arviointiin riittävät otsikot, muotosäännöt ja tarvittaessa kuvitteelliset rivit samalla rakenteella. Oikeaa pankkidataa ei tarvita ennen kirjallista rajausta ja sovittua turvallista aineistoreittiä.</p>
+
+  <section class="card warn">
+    <h2>Älä liitä ensimmäiseen viestiin</h2>
+    <ul>
+      <li>pankki-CSV:tä, tiliotetta tai tapahtumarivejä;</li>
+      <li>tilinumeroita, viitenumeroita, henkilötunnuksia tai vuokralaisten nimiä;</li>
+      <li>verkkopankkitunnuksia, API-avaimia, korttitietoja tai kirjautumistietoja;</li>
+      <li>riita-, perintä-, luotto- tai terveystietoja.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>1) Lähetä ensin vain otsikkorivi</h2>
+    <p>Kopioi pankkiviennin sarakeotsikot ilman yhtään tapahtumariviä. Esimerkiksi:</p>
+    <pre><code>Kirjauspäivä;Summa;Maksaja;Viite;Viesti;Saldo</code></pre>
+    <p>Jos et tiedä otsikoita, kerro pankki/export-näkymän kenttien nimet omin sanoin.</p>
+  </section>
+
+  <section class="card">
+    <h2>2) Kerro muotosäännöt</h2>
+    <ul>
+      <li>Päivämäärämuoto: esimerkiksi <code>31.7.2026</code> tai <code>2026-07-31</code>.</li>
+      <li>Desimaalierotin: esimerkiksi <code>800,00</code> tai <code>800.00</code>.</li>
+      <li>Kuukausittainen mittakaava: esimerkiksi 4 vuokraa ja 40 pankkiriviä.</li>
+      <li>Miten maksu yleensä tunnistetaan: viite, viestikenttä, maksajan tunniste vai summa + päiväikkuna.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>3) Jos esimerkkirivi tarvitaan, tee siitä täysin synteettinen</h2>
+    <p>Muuta kaikki arvot kuvitteellisiksi. Esimerkin pitää näyttää muoto, ei todellista tapahtumaa.</p>
+    <pre><code>Kirjauspäivä;Summa;Maksaja;Viite;Viesti;Saldo
+31.07.2026;800,00;Esimerkki Maksaja;10001;Vuokra A1;12345,67
+02.08.2026;800,00;Esimerkki Maksaja;10001;Vuokra A1;13145,67</code></pre>
+    <p class="muted">Yllä oleva rivi on tarkoituksella keksitty. Älä käytä oikeaa nimeä, oikeaa viitettä, oikeaa saldoa tai todellista tapahtumapäivää.</p>
+  </section>
+
+  <section class="card">
+    <h2>4) Kerro odotettujen maksujen rakenne ilman henkilödataa</h2>
+    <pre><code>tunniste,expected_amount,due_date,match_hint
+A1,800.00,2026-07-05,10001
+B2,950.00,2026-07-05,10002</code></pre>
+    <p>Käytä asunto- tai kohdetunnistetta, älä vuokralaisen nimeä. Oikea maksu- ja aineistoreitti sovitaan vasta, jos rajaus hyväksytään.</p>
+  </section>
+
+  <section class="card">
+    <h2>5) Kopioi valmis ensiviesti</h2>
+    <p>Liitä mukaan vain turvalliset tiedot:</p>
+    <pre><code>Hei, haluan tarkistaa sopiiko pankki-CSV vuokramaksujen 249 € täsmäytysauditointiin.
+
+Tavoite: puuttuvat maksut / myöhäiset maksut / duplikaatit / muu: ____
+CSV-otsikot: ____
+Päivämäärä- ja desimaalimuoto: ____
+Arvio rivimäärästä ja odotetuista maksuista kuukaudessa: ____
+Maksun tunnistus: viite / viesti / maksajan tunniste / summa + päiväikkuna
+
+Vahvistan, ettei tässä viestissä ole pankkivientiä, tilinumeroa, henkilötietoja, tapahtumakuvauksia, tunnuksia tai asiakasdataa.</code></pre>
+    <p><a class="button" href="mailto:antero.vipunen.dev@gmail.com?subject=Turvallinen%20CSV-esimerkkiaineisto%20auditointiin&body=Hei%2C%20haluan%20tarkistaa%20sopiiko%20pankki-CSV%20vuokramaksujen%20249%20%E2%82%AC%20t%C3%A4sm%C3%A4ytysauditointiin.%0A%0ATavoite%3A%20puuttuvat%20maksut%20%2F%20my%C3%B6h%C3%A4iset%20maksut%20%2F%20duplikaatit%20%2F%20muu%3A%0ACSV-otsikot%3A%0AP%C3%A4iv%C3%A4m%C3%A4%C3%A4r%C3%A4-%20ja%20desimaalimuoto%3A%0AArvio%20rivim%C3%A4%C3%A4r%C3%A4st%C3%A4%20ja%20odotetuista%20maksuista%20kuukaudessa%3A%0AMaksun%20tunnistus%3A%20viite%20%2F%20viesti%20%2F%20maksajan%20tunniste%20%2F%20summa%20%2B%20p%C3%A4iv%C3%A4ikkuna%0A%0AVahvistan%2C%20ettei%20t%C3%A4ss%C3%A4%20viestiss%C3%A4%20ole%20pankkivienti%C3%A4%2C%20tilinumeroa%2C%20henkil%C3%B6tietoja%2C%20tapahtumakuvauksia%2C%20tunnuksia%20tai%20asiakasdataa.">Avaa turvallinen sähköpostipohja</a></p>
+  </section>
+
+  <p class="muted"><a href="./">Palvelusivu</a> · <a href="sopivuuskysely.html">5 minuutin sopivuuskysely</a> · <a href="sample-report-fi.html">synteettinen esimerkkiraportti</a></p>
+</main>
+</body>
+</html>

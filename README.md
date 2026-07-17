@@ -40,6 +40,8 @@ Finnish buyer guide: https://anterovipunen.github.io/bank-csv-reconciliation-aud
 
 Safe 5-minute fit check: https://anterovipunen.github.io/bank-csv-reconciliation-audit/sopivuuskysely.html
 
+Safe synthetic example-data guide: https://anterovipunen.github.io/bank-csv-reconciliation-audit/turvallinen-esimerkkiaineisto.html
+
 Email `antero.vipunen.dev@gmail.com` for a safe scope review. In the first message include only CSV column names, date/decimal conventions, and the desired outcome — never bank data, credentials, customer data, account numbers, or transaction descriptions. A secure data-sharing route is agreed only after the scope is accepted.
 
 ## What this is not
