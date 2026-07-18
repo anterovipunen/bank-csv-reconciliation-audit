@@ -40,6 +40,8 @@ Privacy-safe sample package release: https://github.com/anterovipunen/bank-csv-r
 
 Finnish buyer guide: https://anterovipunen.github.io/bank-csv-reconciliation-audit/vuokranmaksujen-seuranta-csv.html
 
+General Finnish bank-CSV reconciliation guide: https://anterovipunen.github.io/bank-csv-reconciliation-audit/pankki-csv-tasmaytys.html
+
 Safe 5-minute fit check: https://anterovipunen.github.io/bank-csv-reconciliation-audit/sopivuuskysely.html
 
 Safe synthetic example-data guide: https://anterovipunen.github.io/bank-csv-reconciliation-audit/turvallinen-esimerkkiaineisto.html
