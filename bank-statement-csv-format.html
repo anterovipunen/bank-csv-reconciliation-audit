@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Bank statement CSV format checklist for reconciliation: headers, date and decimal conventions, duplicate risk, safe first-contact facts, and a fixed-scope audit path.">
+  <meta property="og:title" content="Bank statement CSV format checklist for reconciliation">
+  <meta property="og:description" content="Check whether a bank CSV export is ready for a read-only reconciliation audit without sending bank data in the first email.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anterovipunen.github.io/bank-csv-reconciliation-audit/bank-statement-csv-format.html">
+  <link rel="canonical" href="https://anterovipunen.github.io/bank-csv-reconciliation-audit/bank-statement-csv-format.html">
+  <title>Bank statement CSV format checklist for reconciliation</title>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Bank statement CSV format checklist for reconciliation","about":["bank statement CSV","CSV reconciliation","duplicate detection","safe data intake"],"author":{"@type":"Person","name":"Antero Vipunen"},"mainEntityOfPage":"https://anterovipunen.github.io/bank-csv-reconciliation-audit/bank-statement-csv-format.html"}
+  </script>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--card:#141c31;--ink:#edf2ff;--muted:#afbad2;--accent:#74e2b5;--line:#2a385b}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#0b1020,#101a32);color:var(--ink);font:17px/1.6 system-ui,-apple-system,sans-serif}main{max-width:900px;margin:auto;padding:56px 24px}.tag{color:var(--accent);font-weight:750;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem}h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.08}.lead{font-size:1.25rem;color:var(--muted)}.card{background:rgba(20,28,49,.9);border:1px solid var(--line);border-radius:18px;padding:24px;margin:22px 0}.button{display:inline-block;background:var(--accent);color:#052019;padding:14px 20px;border-radius:10px;font-weight:800;text-decoration:none}a{color:var(--accent)}li{margin:.4em 0}.muted{color:var(--muted)}code{background:#080d1a;padding:.15rem .35rem;border-radius:.35rem}
+  </style>
+</head>
+<body>
+<main>
+  <p class="tag">No bank login · no first-email files · read-only reconciliation</p>
+  <h1>Is your bank statement CSV ready for reconciliation?</h1>
+  <p class="lead">Before a CSV export can be matched against expected payments, the risky parts are usually the same: unclear date formats, comma-vs-dot decimals, empty references, duplicate exports, unmapped columns, and descriptions that contain sensitive personal data.</p>
+
+  <section class="card">
+    <h2>Safe checklist: send facts, not data</h2>
+    <p>For a first fit check, do not send a real bank statement, account number, transaction rows, customer names, references, descriptions, credentials, or personal data. Send only these scope facts:</p>
+    <ol>
+      <li>Column names only, for example <code>Date;Amount;Reference;Description</code>.</li>
+      <li>Date and decimal convention, for example <code>31.12.2026</code> and <code>123,45</code>.</li>
+      <li>Approximate monthly row count and number of expected payments.</li>
+      <li>The desired read-only outcome: missing payments, late payments, duplicate candidates, or import validation warnings.</li>
+      <li>Confirmation that no bank export, transaction rows, account identifiers, credentials, or personal/customer data are attached.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>What the €249 audit checks</h2>
+    <ul>
+      <li>One bank CSV format and one expected-payment ledger.</li>
+      <li>Column mapping and validation warnings for ignored columns, skipped blank rows, and empty reference/description fields.</li>
+      <li>Matched, missing, and potentially duplicated payments in Markdown and JSON.</li>
+      <li>A local Python runner/config that can be rerun on the same export shape.</li>
+    </ul>
+    <p><a class="button" href="mailto:antero.vipunen.dev@gmail.com?subject=Bank%20statement%20CSV%20fit%20check&body=1.%20Desired%20outcome%20(missing%20payments%20/%20late%20payments%20/%20duplicate%20candidates%20/%20validation%20warnings)%3A%0A%0A2.%20CSV%20column%20names%20only%20(no%20rows)%3A%0A%0A3.%20Date%20and%20decimal%20format%3A%0A%0A4.%20Approximate%20monthly%20row%20count%20and%20expected%20payment%20count%3A%0A%0A5.%20I%20confirm%20this%20first%20email%20contains%20no%20bank%20export%2C%20account%20number%2C%20transaction%20rows%2C%20customer%20data%2C%20credentials%2C%20or%20personal%20data%3A%20yes%2Fno%0A">Ask for a safe CSV fit check</a></p>
+    <p class="muted">You receive a written fit decision before payment or data exchange. Work starts only after scope, price, VAT/payment terms, and a safe file route are agreed in writing.</p>
+  </section>
+
+  <section class="card">
+    <h2>When a CSV is a good fit</h2>
+    <ul>
+      <li>The export is consistent enough to identify date, amount, and at least one useful reference/description field.</li>
+      <li>The expected-payment list is already known: tenant/customer code, due month, expected amount, and optional reference.</li>
+      <li>You want a read-only exception report, not accounting advice, bank connectivity, payment initiation, debt collection, or a public upload form.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Market signal, not a revenue claim</h2>
+    <p>Public product issues and accounting-help pages show recurring demand for bank statement CSV import, mapping, duplicate detection, and reconciliation safeguards. Those pages are demand evidence only: they are not customer relationships, affiliations, paid leads, or recognized revenue.</p>
+  </section>
+
+  <p class="muted">Related: <a href="./">Finnish fixed-scope landing</a> · <a href="pankki-csv-tasmaytys.html">Finnish bank-CSV reconciliation guide</a> · <a href="sample-report-fi.html">synthetic sample report</a> · <a href="turvallinen-esimerkkiaineisto.html">safe synthetic example data</a>. This service does not provide bookkeeping, financial advice, bank integration, payment initiation, or debt collection.</p>
+</main>
+</body>
+</html>

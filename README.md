@@ -42,6 +42,8 @@ Finnish buyer guide: https://anterovipunen.github.io/bank-csv-reconciliation-aud
 
 General Finnish bank-CSV reconciliation guide: https://anterovipunen.github.io/bank-csv-reconciliation-audit/pankki-csv-tasmaytys.html
 
+English bank statement CSV format checklist: https://anterovipunen.github.io/bank-csv-reconciliation-audit/bank-statement-csv-format.html
+
 Safe 5-minute fit check: https://anterovipunen.github.io/bank-csv-reconciliation-audit/sopivuuskysely.html
 
 Safe synthetic example-data guide: https://anterovipunen.github.io/bank-csv-reconciliation-audit/turvallinen-esimerkkiaineisto.html
